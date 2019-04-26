@@ -55,12 +55,16 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
   * Not bound by Cross-origin requests (CORS)
 
 ---
-# Servers
+# High-level options
 
 * Lightstreamer
 * Ajax Push Engine (APE)
 
 ![](/ape-project.png)
+
+* Socket.IO
+* SignalR
+* <https://www.leggetter.co.uk/real-time-web-technologies-guide/>
 
 ???
 
@@ -70,18 +74,6 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
   * First customers were financial instutitions, in 2010 NASA set up LightStreamer to relay telemetry from the ISS
 * APE
   * Open source
-
----
-# Roll your own
-
-![](/comet-architecture.png)
-<https://msdn.microsoft.com/en-us/magazine/jj891053.aspx>
-
----
-# Libraries
-
-* Socket.IO
-* SignalR
 
 ---
 # ASP.NET SignalR
@@ -140,6 +132,8 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
   <https://www.leggetter.co.uk/real-time-web-technologies-guide/>
 * Known Issues and Best Practices for the Use of Long Polling and Streaming in Bidirectional HTTP
   <https://tools.ietf.org/html/rfc6202>
+* ASP.NET - Building a Simple Comet Application in the Microsoft .NET Framework
+  <https://msdn.microsoft.com/en-us/magazine/jj891053.aspx>
 
 # These slides
 
