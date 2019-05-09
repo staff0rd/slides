@@ -7,8 +7,8 @@ class: center, middle
 # Manual approach
 
 ![](f5.webp)
-![](refresh.gif)
 
+---
 # Clever approach
 
 ```javascript
@@ -108,14 +108,31 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
 ---
 # Azure SignalR Service
 
----
-# SignalR in Practice
-
-* RPS Tournament
-* Digital Icebreakers
+* Scale, go serverless, or both, with your SignalR application.
+* $68/month per 1000 connections for 1mil messages then $1.37 per 1mil messages.
+* Max 10,000 connections
+* Serverless = Send to client(s) only
 
 ---
 # Load testing SignalR
+
+* Crank / Crankier
+* Containers
+* VMs
+* 236k tweet
+* 111,665
+* C10k/C10M
+
+---
+# SignalR in Practice
+<div style="border=3px solid black;">
+<img src="rps.png" width="100%" />
+</div>
+---
+
+# SignalR in Practice
+
+https://www.digitalicebreakers.com
 
 ---
 # Sources
@@ -126,12 +143,20 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
   <https://www.codemag.com/Article/1807061/Build-Real-time-Applications-with-ASP.NET-Core-SignalR>
 * Comet: Low latency data for the browser
   <https://infrequently.org/2006/03/comet-low-latency-data-for-the-browser/>
-* Is Comet obsolete now with server sent evetns and websockets
+
+---
+# Sources
+
+* Is Comet obsolete now with server sent events and websockets
   <https://stackoverflow.com/questions/12078550/is-comet-obsolete-now-with-server-sent-events-and-websocket/>
 * Real time web technologies guide
   <https://www.leggetter.co.uk/real-time-web-technologies-guide/>
 * Known Issues and Best Practices for the Use of Long Polling and Streaming in Bidirectional HTTP
   <https://tools.ietf.org/html/rfc6202>
+
+---
+# Sources
+
 * ASP.NET - Building a Simple Comet Application in the Microsoft .NET Framework
   <https://msdn.microsoft.com/en-us/magazine/jj891053.aspx>
 
@@ -139,3 +164,9 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
 
 * remark
   <https://github.com/gnab/remark>
+
+---
+class: center, middle
+
+# Thank-you
+## staffordwilliams.com
