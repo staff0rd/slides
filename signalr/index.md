@@ -110,7 +110,7 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
 
 * Scale, go serverless, or both, with your SignalR application.
 * $68/month per 1000 connections for 1mil messages then $1.37 per 1mil messages.
-* Max 10,000 connections
+* Max 100,000 connections
 * Serverless = Send to client(s) only
 
 ---
