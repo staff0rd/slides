@@ -132,7 +132,7 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
 
 # SignalR in Practice
 
-digitalicebreakers.com
+<digitalicebreakers.com>
 
 ---
 # Sources
