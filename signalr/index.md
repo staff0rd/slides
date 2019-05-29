@@ -124,6 +124,35 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
 * C10k/C10M
 
 ---
+class: center, middle
+
+# Local client
+
+![Load testing - Local Client diagram](loadtest/localclient.svg)
+
+---
+class: center, middle
+
+# Containers
+
+![Load testing - Containers diagram](loadtest/containers.svg)
+
+---
+class: center, middle
+
+# Virtual Machines
+
+![Load testing - VM diagram](loadtest/vms.svg)
+
+---
+# Costs
+
+---
+# Results
+
+
+
+---
 # SignalR in Practice
 <div style="border=3px solid black;">
 <img src="rps.png" width="100%" />
