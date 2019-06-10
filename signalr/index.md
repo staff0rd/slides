@@ -108,20 +108,22 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
 ---
 # Azure SignalR Service
 
-* Scale, go serverless, or both, with your SignalR application.
-* $68/month per 1000 connections for 1mil messages then $1.37 per 1mil messages.
-* Max 100,000 connections
-* Serverless = Send to client(s) only
+* Scale
+* $68/month per 1,000 connections 
+
+  1mil messages then $1.37 per 1mil messages.
+
+* Max 100,000 connections (default)
+* Serverless
+
+  Send to client(s) only
 
 ---
 # Load testing SignalR
 
-* Crank / Crankier
-* Containers
-* VMs
 * 236k tweet
-* 111,665
 * C10k/C10M
+* Crank / Crankier
 
 ---
 class: center, middle
@@ -135,7 +137,14 @@ class: center, middle
 
 # Containers
 
-![Load testing - Containers diagram](loadtest/containers.svg)
+![Load testing - Containers diagram](loadtest/containers1.svg)
+
+---
+class: center, middle
+
+# Containers
+
+![Load testing - Containers diagram](loadtest/containers2.svg)
 
 ---
 class: center, middle
@@ -146,11 +155,71 @@ class: center, middle
 
 ---
 # Costs
+## Server
+
+.pure-table.pure-table-striped.smaller-font[
+Name    | Spec         | $/hour
+--------|--------------|-------
+D2s v3  | 2CPU, 8GB    | 0.16
+D4s v3  | 4CPU, 16GB   | 0.32
+D8s v3  | 8CPU, 32GB   | 0.64
+D16s v3 | 16CPU, 64GB  | 1.29
+D32s v3 | 32CPU, 128GB | 2.57
+D64s v3 | 64CPU, 256GB | 5.14
+]
+
+---
+# Costs
+## Clients
+
+.pure-table.pure-table-striped.smaller-font[
+Name    | Spec         | $/hour
+--------|--------------|-------
+B2MS    | 2CPU, 8GB    | 0.14
+**Total** | x40          | 5.448
+]
 
 ---
 # Results
 
+.pure-table.pure-table-striped.smaller-font[
+Size   | New/sec | Connection | Time
+-------|---------|----------------|------
+D2s v3 | 983     | 100,730        | 07:50
+D8s v3 | 1128    | 214,025        | 13:03
+D32s v3| 1696    | 245,217        | 10:25
+]
 
+---
+# You can too - source
+
+https://github.com/staff0rd/aspnetcore
+
+```
+src/SignalR/perf/benchmarkapps/BenchmarkServer
+src/SignalR/perf/benchmarkapps/Crankier
+```
+---
+
+# You can too - docker
+
+https://github.com/staff0rd/docker-crankier
+
+```powershell
+.\Up.ps1 -count 10 -location australiaeast
+.\Up.ps1 -count 10 -offset 10 -location westus
+.\Up.ps1 -count 10 -offset 20 -location eastus
+
+.\RunCommand.ps1 -command "printenv"
+```
+
+```bash
+docker run -d staff0rd/crankier \ 
+  --send-duration 10000 \
+  --target-url http://yourPath/echo \
+  --connections 10000 \
+  --workers 20
+```
 
 ---
 # SignalR in Practice
@@ -198,4 +267,6 @@ class: center, middle
 class: center, middle
 
 # Thank-you
-## staffordwilliams.com
+`staffordwilliams.com`
+## GitHub/Twitter
+`@staff0rd`
