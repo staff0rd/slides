@@ -60,7 +60,7 @@ Pushing real-time data to any browser instead of waiting for the browser to poll
 * Lightstreamer
 * Ajax Push Engine (APE)
 
-![](/ape-project.png)
+![ape project server diagram](ape-project.png)
 
 * Socket.IO
 * SignalR
