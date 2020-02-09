@@ -25,8 +25,474 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>
+						Hooks + Redux
+					</h1>
+					<p>staffordwilliams.com</p>
+					<p>@staff0rd</p>
+				</section>
+				<section>
+					<ul>
+						<li>
+							How did we get here?
+						</li>
+						<li>
+							Learning hooks
+						</li>
+						<li>
+							Learning Redux
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>How did we get here?</h2>
+					<img class='fragment' src='img/netscape.gif' />
+				</section>
+				<section>
+					<h2>2006</h2>
+					<img class='fragment' src='img/jquery.jpg' />
+				</section>
+				<section>
+					<h2>2007</h2>
+					<img class='fragment' src='img/extjs.jpg' />
+				</section>
+				<section>
+					<h2>2009</h2>
+					<img class='fragment' style='background: white;' src='img/mvc.jpeg' />
+				</section>
+				<section>
+					<h2>2010</h2>
+					<img class='fragment' style='background: white;' src='img/angular.png' />
+				</section>
+				<section>
+					<h2>2012</h2>
+					<img class='fragment' style='background: white;' src='img/durandal.png' />
+				</section>
+				<section>
+					<h2>2013</h2>
+					<img class='fragment' style='background: white;' src='img/react.jpeg' />
+				</section>
+				<section>
+					<h2>2014</h2>
+					<img class='fragment' style='background: white;' src='img/typescript.png' />
+				</section>
+				<section>
+					<h2>2015</h2>
+					<img class='fragment' style='background: white;' src='img/redux.png' />
+					<ul>
+						<li class='fragment' >Quit my job</li class='fragment'>
+						<li class='fragment' >Learnt AngularJS</li class='fragment'>
+					</ul>
+				</section>
+				<section>
+					<h2>2016</h2>
+					<img class='fragment' style='background: white;' src='img/phaser.jpeg' />
+				</section>
+				<section>
+					<h2>2016</h2>
+					<img style='background: white;' src='img/pixijs.png' />
+				</section>
+				<section>
+					<h2>2016</h2>
+					<img src='img/angular2.jpg' />
+				</section>
+				<section>
+					<h2>2017</h2>
+					<ul>
+						<li class='fragment' >Swift (?)</li class='fragment'>
+						<li class='fragment' >ASP.NET MVC 4</li class='fragment'>
+					</ul>
+				</section>
+				<section>
+					<h2>2018</h2>
+					<img style='background: white;' src='img/react.jpeg' />
+				</section>
+				<section>
+					<h2>Components & Props</h2>
+				</section>
+				<section>
+					<pre><code class="lang-javascript" data-trim data-noescape>
+						function Welcome(props) {
+						  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+						}
+					</code></pre>
+				</section>
+				<section>
+          <pre><code class="lang-javascript" data-trim data-noescape>
+            function Welcome(props) {
+              return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+            }
+            
+            function App() {
+              return (
+                &lt;div&gt;
+                &lt;Welcome name=&quot;Sara&quot; /&gt;
+                &lt;Welcome name=&quot;Cahal&quot; /&gt;
+                &lt;Welcome name=&quot;Edite&quot; /&gt;
+                &lt;/div&gt;
+              );
+            }
+            </code></pre>
+          </section>
+          <section>
+            <h2>State & Lifecycle</h2>
+          </section>
+          <section data-transition="slide-in none">
+            <pre><code data-trim data-noescape>
+              function Welcome(props) {
+                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              class Welcome extends React.Component {
+                render() {
+                  return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="2-7,10">
+              class Welcome extends React.Component {
+                constructor(props) {
+                  super(props);
+                  this.state = {
+                    name: "Meligy",
+                  };
+                }
+              
+                render() {
+                  return &lt;h1&gt;Hello, {this.state.name}&lt;/h1&gt;;
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="9-10">
+              class Welcome extends React.Component {
+                constructor(props) {
+                  super(props);
+                  this.state = {
+                    name: "Meligy",
+                  };
+                }
+
+                componentDidMount() {}
+                componentWillUnmount() {}
+              
+                render() {
+                  return &lt;h1&gt;Hello, {this.state.name}&lt;/h1&gt;;
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="2-8">
+              class Welcome extends React.Component {
+                componentDidMount() {
+                  something.subscribe("newPerson", (person) => {
+                    this.setState({
+                      name: person.name
+                    });
+                  });
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="9-13">
+              class Welcome extends React.Component {
+                componentDidMount() {
+                  something.subscribe("newPerson", (person) => {
+                    this.setState({
+                      name: person.name
+                    });
+                  });
+                }
+
+                componentWillUnmount() {
+                  something.unsubscribe("newPerson");
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              class Welcome extends React.Component {
+                constructor(props) { ... }
+
+                componentDidMount() { ... }
+
+                componentWillUnmount() { ... }
+
+                render() { ... }
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h1>2019</h1>
+            <h3 class="fragment">Hooks</h3>
+            <ul>
+              <li class="fragment">React 16.8</li>
+              <li class="fragment">Opt-in, non-breaking</li>
+              <li class="fragment">
+                React Today and Tomorrow and 90% Cleaner React With Hooks
+                <a href="https://youtu.be/dpw9EHDh2bM">
+                  https://youtu.be/dpw9EHDh2bM
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Hooks</h3>
+            <ul>
+              <li>useState</li>
+              <li>useEffect</li>
+              <li class="fragment">Rules</li>
+              <li class="fragment">Custom hooks</li>
+            </ul>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              class Welcome extends React.Component {
+                constructor(props) {
+                  super(props);
+                  this.state = {
+                    name: "Meligy",
+                  };
+                }
+              
+                render() {
+                  return &lt;h1&gt;Hello, {this.state.name}&lt;/h1&gt;;
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              function Welcome() {
+                const [name, setName] = useState("Meligy");
+
+                return &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="3-13">
+              class Welcome extends React.Component {
+                ...
+                componentDidMount() {
+                  something.subscribe("newPerson", (person) => {
+                    this.setState({
+                      name: person.name
+                    });
+                  });
+                }
+
+                componentWillUnmount() {
+                  something.unsubscribe("newPerson");
+                }
+                ...
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="4-9|5-7|8|9">
+              function Welcome() {
+                const [name, setName] = useState("Meligy");
+
+                useEffect(() => {
+                  something.subscribe("newPerson", (person) => {
+                    setName(person.name);
+                  });
+                  return () => something.unsubscribe("newPerson");
+                }, []);
+
+                return &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              componentDidMount() {
+                document.title = `You have ${this.state.beers} left`;
+              }
+            
+              componentDidUpdate() {
+                document.title = `You have ${this.state.beers} left`;
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="5-9">
+              componentDidMount() {
+                document.title = `You have ${this.state.beers} left`;
+              }
+            
+              componentDidUpdate(prevProps, prevState) {
+                // optimised!
+                if (prevState.beers != this.state.beers) {
+                  document.title = `You have ${this.state.beers} left`;
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              useEffect(() => {
+                document.title = `You have ${beers} left`;
+              }, [beers]);
+            </code></pre>
+          </section>
+          <section>
+            <h2>Rules</h2>
+            <ul class='fragment'>
+              <li>
+                <div>Only Call Hooks at the Top Level</div>
+                <pre class='fragment'><code data-trim data-noescape data-line-numbers="1-4|5-8">
+                  // NO!
+                  if (condition) {
+                    useEffect(() => { ... });
+                  }
+                  // YES!
+                  useEffect(() => {
+                    if (condition) { ... }
+                  });
+                </code></pre>
+              </li>
+              <li class='fragment'>Call Hooks from React function components</li>
+              <li class='fragment'>Call Hooks from custom Hooks</li>
+              <li class='fragment'>eslint-plugin-react-hooks</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Wrapper hell</h2>
+            <img src='img/wrapperhell.jpeg' />
+          </section>
+          <section>
+            <pre><code data-trim data-noescape data-line-numbers="|10-11|4|5">
+              class ShowTheLocation extends React.Component {
+                render() {
+                  return (
+                    &lt;Link onClick={() =&gt; this.props.history.push("/")}&gt;
+                      You are now at {this.props.location.pathname}
+                    &lt;/Link&gt;
+                  );
+                }
+              } 
+              const ShowTheLocationWithRouter =
+                withRouter(ShowTheLocation);
+            </code></pre>
+          </section>
+          <section>
+            <pre><code data-trim data-noescape data-line-numbers="">
+              function ShowTheLocation() {
+                const history = useHistory();
+                const location = useLocation();
+
+                return (
+                  &lt;Link onClick={() =&gt; history.push("/")}&gt;
+                    You are now at {location.pathname}
+                  &lt;/Link&gt;
+                );                
+              } 
+            </code></pre>
+          </section>
+          <section>
+            <h1>Also in 2019...</h1>
+            <img class="fragment" style="background: white;" src="img/redux.png" />
+          </section>
+          <section>
+            <h1>Redux 101</h1>
+            <ul>
+              <li class='fragment'>
+                <div>Single source of truth</div>
+                <div class='fragment'><em>Store</em></div>
+              </li>
+              <li class='fragment'>
+                <div>State is read-only</div>
+                <div class='fragment'>Trigger modification by dispatching <em>Action</em>s</div>
+              </li>
+              <li class='fragment'>
+                <div>Change via pure function</div>
+                <div class='fragment'><em>Reducer</em>s take current state and an action to produce new state</div>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h1>Redux</h1>
+            <ul>
+              <li>Store</li>
+              <li>Action</li>
+              <li>Reducer</li>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="1-2|4|6-13">
+              console.log(store.getState());
+              // prints { beers: 10 }
+
+              store.dispatch({ type: 'DRINK_BEER' });
+
+              function reducer(state = { beers: 10 }, action) {
+                switch(action.type) {
+                  case 'DRINK_BEER': return ({
+                    ...state,
+                    beers: state.beers - 1,
+                  });
+                }
+              };
+            </code></pre>
+          </section>
+          <section>
+            <h2 style='text-transform: none;'>
+              npm install redux --save
+            </h2>
+          </section>
+          <section>
+            <ul>
+              <li>redux</li>
+              <li>react-redux</li>
+              <li>@reduxjs/toolkit</li>
+              <li>redux-devtools</li>
+            </ul>
+          </section>
+          <section>
+            <h1 style='text-transform: none;'>react-redux</h1>
+            <ul>
+              <li>Provider</li>
+              <li>connect</li>
+            </ul>
+          </section>
+          <section>
+            ...
+          </section>
+          <section>
+            <h1 style='text-transform: none;'>Redux Toolkit</h1>
+            <ul>
+              <li>configureStore()</li>
+              <li>createReducer()</li>
+              <li>createAction()</li>
+              <li>createSlice()</li>
+              <li>createSelector</li>
+            </ul>
+          </section>
+          <section>
+            ...
+          </section>
+          <section>
+            <h1>redux hooks</h1>
+            <ul>
+              <li>useSelector</li>
+              <li>useAction</li>
+            </ul>
+          </section>
+          <section>
+            ...
+          </section>
 			</div>
 		</div>
 
