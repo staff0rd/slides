@@ -431,7 +431,7 @@
               <li>Reducer</li>
             </ul>
           </section>
-          <section>
+          <section data-transition="none none">
             <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="1-2|4|6-13">
               console.log(store.getState());
               // prints { beers: 10 }
@@ -469,20 +469,127 @@
             </ul>
           </section>
           <section>
-            ...
+            <h2 style='text-transform: none;'>Provider</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape™>
+              return (
+                &lt;Provider store={store}&gt;
+                  &lt;App /&gt;
+                &lt;/Provider&gt;
+              );
+            </code></pre>
           </section>
           <section>
-            <h1 style='text-transform: none;'>Redux Toolkit</h1>
+            <h2 style='text-transform: none;'>connect</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape data-line-numbers="|1-6|8-12|14-17">
+              const mapStateToProps = (state) => {
+                return {
+                  beers: state.beers,
+                  beersDrunk: 24 - state.beers,
+                }
+              }
+              
+              const mapDispatchToProps = dispatch => {
+                return {
+                  drinkBeer: () => dispatch({ type: 'DRINK_BEER' }),
+                }
+              }
+              
+              export default connect(
+                mapStateToProps,
+                mapDispatchToProps
+              )(MyComponent)
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <h2>Selectors</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              const mapStateToProps = (state) => {
+                return {
+                  beers: state.beers,
+                  beersDrunk: 24 - state.beers,
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <h2>Selectors</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              const mapStateToProps = createSelector(
+                beersSelector,
+                beersDrunkSelector,
+                (beers, beersDrunk) => ({
+                  beers,
+                  beersDrunk,
+              });
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <h2>Action creators</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              const mapDispatchToProps = dispatch => {
+                return {
+                  drinkBeer: () => dispatch({ type: 'DRINK_BEER' }),
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <h2>Action creators</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              const mapDispatchToProps = dispatch => {
+                return {
+                  drinkBeer: (amount) => dispatch({ 
+                    type: 'DRINK_BEER', 
+                    payload: amount 
+                  }),
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-transition="none none">
+            <h2>Action creators</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              const mapDispatchToProps = dispatch => 
+                bindActionCreators(actions, dispatch);
+            </code></pre>
+          </section>
+          <section>
+            <h2 style='text-transform: none;'>connect</h2>
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              const mapStateToProps = createSelector(
+                beersSelector,
+                beersDrunkSelector,
+                (beers, beersDrunk) => ({
+                  beers,
+                  beersDrunk,
+              });
+              
+              const mapDispatchToProps = dispatch => 
+                bindActionCreators({ actions }, dispatch);
+              
+              export default connect(
+                mapStateToProps,
+                mapDispatchToProps
+              )(MyComponent)
+            </code></pre>
+          </section>
+          <section>
+            <h2 style='text-transform: none;'>Redux Toolkit</h2>
             <ul>
-              <li>configureStore()</li>
-              <li>createReducer()</li>
-              <li>createAction()</li>
-              <li>createSlice()</li>
-              <li>createSelector</li>
+              <li class="fragment">configureStore
+                <ul class="fragment">
+                  <li>combineReducers, middleware</li>
+                </ul>
+              </li>
+              <li class="fragment">createReducer
+                <ul class="fragment">
+                  <li>switch, immer</li>
+                </ul>
+              </li>
+              <li class="fragment">createAction</li>
+              <li class="fragment">createSelector</li>
+              <li class="fragment">createSlice</li>
             </ul>
-          </section>
-          <section>
-            ...
           </section>
           <section>
             <h1>redux hooks</h1>
@@ -492,7 +599,22 @@
             </ul>
           </section>
           <section>
-            ...
+            <pre><code class="lang-javascript" data-trim data-noescape>
+              function MyComponent() {
+                const beers = useSelector(state => state.beers);
+                const dispatch = useDispatch();
+
+                return (
+                  &lt;Button onclick={() =&gt; dispatch(actions.drinkBeer())}&gt;
+                    Drink one of the {beers} beers.
+                  &lt;/Button&gt;
+                );
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h2 style='text-transform: none;'>staffordwilliams.com</h2>
+            <h2 style='text-transform: none;'>@staff0rd</h2>
           </section>
 			</div>
 		</div>
