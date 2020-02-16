@@ -365,7 +365,7 @@
             </ul>
           </section>
           <section>
-            <h2>Wrapper hell</h2>
+            <h2>Custom hooks</h2>
             <img src='img/wrapperhell.jpeg' />
           </section>
           <section>
@@ -531,13 +531,14 @@
           <section data-transition="none none">
             <h2>Action creators</h2>
             <pre><code class="lang-javascript" data-trim data-noescape>
-              const mapDispatchToProps = dispatch => {
-                return {
-                  drinkBeer: (amount) => dispatch({ 
-                    type: 'DRINK_BEER', 
-                    payload: amount 
-                  }),
-                }
+              const {
+                drinkBeer,
+              } = createActions(
+                'DRINK_BEER'
+              );
+
+              export default {
+                drinkBeer,
               }
             </code></pre>
           </section>
